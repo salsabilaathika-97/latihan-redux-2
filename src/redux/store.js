@@ -1,6 +1,17 @@
-import {createStore} from 'redux';
+import {createStore, combineReducers} from "redux";
 
-const authState = {
+const navbarState = {
+    data: {
+        company_name: "Reqresverse",
+        logo: "https://reqres.in/img/faces/6-image.jpg",
+    },
+};
+
+const navbarReducer = (state = navbarState) => {
+    return state;
+};
+
+const cardState = {
     data: {
         name: "Salsa",
         avatar: "https://reqres.in/img/faces/7-image.jpg"
@@ -9,8 +20,8 @@ const authState = {
 
 
 // berfungsi untuk memasukkan state ke dalam store
-const authReducer = (state = authState) => {
+const cardReducer = (state = cardState) => {
     return state;
-}
+};
 
-export const store = createStore(authReducer);
+export const store = createStore(combineReducers({navbarReducer, cardReducer}));
